@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대원이 사진 편집기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>대원이 사진 편집기</h1>
+        <div id="buttons">
+            <button class="btn1">얼굴 확대하기</button>
+            <button class="btn2">립스틱 바르기</button>
+            <button class="btn3">돌리기</button>
+        </div>
+    </div>
+    <div id="img">
+        <img class="img" src="assets/dahuan.jpg" width="400" height="400">
+    </div>
+    <script>
+        const btn1 = document.querySelector('.btn1');
+        const btn2 = document.querySelector('.btn2');
+        const btn3 = document.querySelector('.btn3');
+        let img = document.querySelector('.img');
+        const div = document.getElementById('img');
+        let scaled=false
+        let lip=false
+        
+        btn1.addEventListener('click', () => {
+            img.classList.toggle('active');
+            scaled = ! scaled
+            btn1.innerHTML =  (btn1.innerHTML === '얼굴 확대하기') ? '얼굴 축소하기' : '얼굴 확대하기'
+        });
+        btn2.addEventListener('click', ()=>{
+            if (!lip){
+                div.innerHTML = '<img class="img" src="assets/dahuan_lip.jpg" width="400" height="400">'
+                img = document.querySelector('.img');
+                if (scaled) {
+                    img.classList.toggle('active')
+                }
+            } else {
+                div.innerHTML = '<img class="img" src="assets/dahuan.jpg" width="400" height="400">'
+                img = document.querySelector('.img');
+                if (scaled) {
+                    img.classList.toggle('active')
+                }
+            }
+            lip = !lip
+            
+            div.classList.toggle('actived');
+            
+            btn2.innerHTML = (btn2.innerHTML === '립스틱 바르기') ? '립스틱 없애기' : '립스틱 바르기'
+        })
+
+        btn3.addEventListener('click', () => {
+            div.classList.add('spspspsp');
+            setTimeout(()=>{
+                div.classList.remove('spspspsp');
+            },2000)
+        })
+    </script>
+</body>
+</html>
