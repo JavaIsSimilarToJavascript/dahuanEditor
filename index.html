@@ -24,9 +24,10 @@
         const btn3 = document.querySelector('.btn3');
         let img = document.querySelector('.img');
         const div = document.getElementById('img');
-        let scaled=false
-        let lip=false
-        
+        let scaled=false;
+        let lip=false;
+        let spin = [];
+
         btn1.addEventListener('click', () => {
             img.classList.toggle('active');
             scaled = ! scaled
@@ -54,10 +55,14 @@
         })
 
         btn3.addEventListener('click', () => {
+            spin.push(0);
             div.classList.add('spspspsp');
-            setTimeout(()=>{
-                div.classList.remove('spspspsp');
-            },2000)
+            setTimeout(() => {
+                spin.pop()
+                if (spin.length === 0){
+                    div.classList.remove('spspspsp');
+                }
+            }, 2000);
         })
     </script>
 </body>
