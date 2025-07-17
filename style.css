@@ -40,6 +40,7 @@ button:hover{
     width:400px;
     height:400px;
     overflow: hidden;
+    transition: all linear
 }
 .img.active{
     transform:scale(3)
@@ -53,5 +54,6 @@ button:hover{
 }
 
 #img.spspspsp{
-    animation: spin 0.1s infinite
+    animation: spin 0.1s infinite;
+    transition: all linear
 }
